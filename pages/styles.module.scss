@@ -1,0 +1,36 @@
+.top_bar {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  gap: 1rem;
+}
+
+.user_name {
+  margin-left: auto;
+  font-family: SourceSansPro-Regular;
+  font-size: 24px;
+  color: #616161;
+  letter-spacing: -0.15px;
+  line-height: 48px;
+  text-align: left;
+}
+
+.coin_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #ededed;
+  padding: 0 0.5rem 0 1rem;
+  border-radius: 100px;
+  min-width: 103px;
+  height: 48px;
+}
+
+.coin_counter {
+  font-family: SourceSansPro-Regular;
+  font-size: 24px;
+  color: #616161;
+  letter-spacing: -0.15px;
+  line-height: 48px;
+}
