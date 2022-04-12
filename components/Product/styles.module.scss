@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 276px;
+  background: #ffffff;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+.image_container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #d9d9d9;
+  margin-bottom: 20px;
+}
+
+.category {
+  font-family: SourceSansPro-Regular;
+  font-size: 16px;
+  color: #a3a3a3;
+  letter-spacing: -0.04px;
+  text-align: left;
+}
+.name {
+  font-family: SourceSansPro-Regular;
+  font-size: 18px;
+  color: #616161;
+  letter-spacing: -0.04px;
+  text-align: left;
+}
