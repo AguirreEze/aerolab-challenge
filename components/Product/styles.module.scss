@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,6 +7,52 @@
   background: #ffffff;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 24px;
+  transition: transform 0.15s ease-in-out;
+  &:hover {
+    transform: translateY(-12px);
+    .overlay {
+      opacity: 1;
+    }
+  }
+}
+.overlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  inset: 0;
+  background-image: linear-gradient(
+    -180deg,
+    hsla(190, 96%, 51%, 0.8) 0%,
+    hsla(196, 88%, 55%, 0.8) 100%
+  );
+  div {
+    display: flex;
+    gap: 12px;
+  }
+}
+.cost {
+  font-family: SourceSansPro-Regular;
+  font-size: 36px;
+  color: #ffffff;
+  letter-spacing: -0.08px;
+  text-align: center;
+}
+.button {
+  background: #ffffff;
+  width: 228px;
+  height: 42px;
+  font-family: SourceSansPro-Regular;
+  font-size: 18px;
+  color: #616161;
+  letter-spacing: -0.04px;
+  text-align: center;
+  border: none;
+  border-radius: 21px;
+  cursor: pointer;
 }
 .image_container {
   flex: 1;
