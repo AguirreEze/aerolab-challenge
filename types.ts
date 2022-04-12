@@ -17,7 +17,13 @@ export interface ProductType {
 }
 
 export enum Order {
-  MostRecent = "MOSTRECENT",
-  LowestPrice = "LOWESTPRICE",
-  HighestPrice = "HIGHESTPRICE",
+  MOSTRECENT = "Most recent",
+  LOWESTPRICE = "Lowest price",
+  HIGHESTPRICE = "Highest price",
+}
+
+export interface ListType {
+  list: ProductType[]
+  productsPerPage: number
+  totalProducts: number
 }
