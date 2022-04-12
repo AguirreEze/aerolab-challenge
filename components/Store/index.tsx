@@ -1,4 +1,5 @@
 import OrderButton from "components/OrderButton"
+import StoreElement from "components/Product"
 import { useEffect, useState } from "react"
 import { getProducts } from "services/products"
 import { ListType, Order } from "types"
@@ -49,9 +50,9 @@ export default function Store() {
         </form>
       </section>
 
-      <ul>
+      <ul className={styles.stand}>
         {list?.list.map((elem) => (
-          <h2 key={elem._id}>{elem.name}</h2>
+          <StoreElement key={elem._id} data={elem} />
         ))}
       </ul>
     </main>
