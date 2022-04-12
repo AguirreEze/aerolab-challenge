@@ -28,6 +28,24 @@ export default function Store() {
               key={option}
             />
           ))}
+          {page !== 1 ? (
+            <button
+              type="button"
+              className={styles.button}
+              onClick={() => setPage(page - 1)}
+            >
+              <span>{"<"}</span>
+            </button>
+          ) : null}
+          {list && list.totalProducts > list.productsPerPage * page ? (
+            <button
+              type="button"
+              className={styles.button}
+              onClick={() => setPage(page + 1)}
+            >
+              <span>{">"}</span>
+            </button>
+          ) : null}
         </form>
       </section>
 
