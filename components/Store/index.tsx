@@ -2,6 +2,7 @@ import OrderButton from "components/OrderButton"
 import { useEffect, useState } from "react"
 import { getProducts } from "services/products"
 import { ListType, Order } from "types"
+import styles from "./styles.module.scss"
 
 export default function Store() {
   const [list, setList] = useState<ListType | null>(null)
@@ -11,15 +12,14 @@ export default function Store() {
   useEffect(() => {
     getProducts(page, order).then(setList)
   }, [page, order])
-
   return (
-    <main>
-      <section>
-        <span>{`${list ? list.productsPerPage * page : "0"} of ${
-          list ? list.totalProducts : "0"
-        } products`}</span>
-        <span>Sort by:</span>
-        <form>
+    <main className={styles.background}>
+      <section className={styles.nav}>
+        <span className={styles.text_bold}>{`${
+          list ? list.productsPerPage * page : "0"
+        } of ${list ? list.totalProducts : "0"} products`}</span>
+        <span className={styles.text}>Sort by:</span>
+        <form className={styles.buttoneer}>
           {Object.values(Order).map((option) => (
             <OrderButton
               value={option}
@@ -29,12 +29,13 @@ export default function Store() {
             />
           ))}
         </form>
-        <ul>
-          {list?.list.map((elem) => (
-            <h2 key={elem._id}>{elem.name}</h2>
-          ))}
-        </ul>
       </section>
+
+      <ul>
+        {list?.list.map((elem) => (
+          <h2 key={elem._id}>{elem.name}</h2>
+        ))}
+      </ul>
     </main>
   )
 }

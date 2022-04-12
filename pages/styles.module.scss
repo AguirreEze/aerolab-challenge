@@ -4,7 +4,10 @@
   margin: 1rem;
   gap: 1rem;
 }
-
+.header {
+  margin-bottom: 40px;
+  width: 100%;
+}
 .user_name {
   margin-left: auto;
   font-family: SourceSansPro-Regular;
@@ -33,4 +36,10 @@
   color: #616161;
   letter-spacing: -0.15px;
   line-height: 48px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
