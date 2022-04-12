@@ -7,20 +7,14 @@ import styles from "./styles.module.scss"
 import Logo from "public/aerolab-logo.svg"
 import Coin from "public/icons/coin.svg"
 import { getUser } from "services/user"
-import { Order, UserType } from "types"
-import { getProducts } from "services/products"
+import { UserType } from "types"
+import Store from "components/Store"
 
 const Home: NextPage = () => {
   const [user, setUser] = useState<UserType | null>(null)
-  const [page, setPage] = useState<number>(1)
-  const [order, setOrder] = useState<Order>(Order.MostRecent)
 
   useEffect(() => {
     getUser().then(setUser)
-  }, [])
-
-  useEffect(() => {
-    getProducts(page, order).then(console.log)
   }, [])
 
   return (
@@ -55,7 +49,7 @@ const Home: NextPage = () => {
           layout={"responsive"}
         />
       </header>
-      <main></main>
+      <Store />
     </div>
   )
 }
