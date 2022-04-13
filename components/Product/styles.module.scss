@@ -13,6 +13,9 @@
     .overlay {
       opacity: 1;
     }
+    .bag_icon2 {
+      opacity: 0;
+    }
   }
 }
 .overlay {
@@ -54,6 +57,11 @@
   border-radius: 21px;
   cursor: pointer;
 }
+.button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .image_container {
   flex: 1;
   display: flex;
@@ -76,4 +84,15 @@
   color: #616161;
   letter-spacing: -0.04px;
   text-align: left;
+}
+
+.bag_icon {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 10;
+}
+
+.bag_icon2 {
+  @extend .bag_icon;
 }

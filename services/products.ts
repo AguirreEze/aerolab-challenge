@@ -13,8 +13,8 @@ export const getProducts = (page: number, order: Order) => {
   return fetch("https://coding-challenge-api.aerolab.co/products", request)
     .then((res) => res.json())
     .then((products: ProductType[]) => {
-      if (order === Order.HIGHESTPRICE) products.sort((a, b) => a.cost - b.cost)
-      if (order === Order.LOWESTPRICE) products.sort((a, b) => b.cost - a.cost)
+      if (order === Order.HIGHESTPRICE) products.sort((a, b) => b.cost - a.cost)
+      if (order === Order.LOWESTPRICE) products.sort((a, b) => a.cost - b.cost)
       const list = products?.slice(
         productsPerPage * (page - 1),
         productsPerPage * page
