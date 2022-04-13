@@ -49,3 +49,12 @@
   grid-template-columns: repeat(auto-fit, minmax(276px, 1fr));
   gap: 24px;
 }
+
+.bottom_bar {
+  @extend .nav;
+  padding: 24px 0;
+  margin-bottom: 74px;
+  .text_bold {
+    border-right: none;
+  }
+}

@@ -55,6 +55,13 @@ export default function Store() {
           <StoreElement key={elem._id} data={elem} />
         ))}
       </ul>
+      <div className={styles.bottom_bar}>
+        <span className={styles.text_bold}>
+          {`${list ? list.productsPerPage * page : "0"} of ${
+            list ? list.totalProducts : "0"
+          } products`}
+        </span>
+      </div>
     </main>
   )
 }
