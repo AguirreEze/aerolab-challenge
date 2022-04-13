@@ -1,21 +1,16 @@
 import type { NextPage } from "next"
-import { useEffect, useState } from "react"
 import Head from "next/head"
 import Image from "next/image"
 import styles from "./styles.module.scss"
 
 import Logo from "public/aerolab-logo.svg"
 import Coin from "public/icons/coin.svg"
-import { getUser } from "services/user"
-import { UserType } from "types"
 import Store from "components/Store"
+import { useContext } from "react"
+import { UserContext } from "context/user"
 
 const Home: NextPage = () => {
-  const [user, setUser] = useState<UserType | null>(null)
-
-  useEffect(() => {
-    getUser().then(setUser)
-  }, [])
+  const { user } = useContext(UserContext)
 
   return (
     <div className={styles.container}>
