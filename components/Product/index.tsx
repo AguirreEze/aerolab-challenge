@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { ProductType } from "types"
+import { ProductType, UserType } from "types"
 import Coin from "public/icons/coin.svg"
 import styles from "./styles.module.scss"
 import { useContext, useEffect, useState } from "react"
@@ -13,7 +13,7 @@ interface Iprops {
 }
 
 export default function Product({ data }: Iprops) {
-  const { user } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
   const [canBuy, setCanBuy] = useState<boolean>(false)
 
   useEffect(() => {
@@ -21,7 +21,16 @@ export default function Product({ data }: Iprops) {
   }, [user?.points])
 
   const handleClick = () => {
-    window.confirm(`Want to buy ${data.name}, for ${data.cost} ?`)
+    if (
+      window.confirm(`Want to buy ${data.name}, for ${data.cost} ?`) &&
+      user
+    ) {
+      const updatedUser = {
+        ...user,
+        points: user?.points - data.cost,
+      }
+      setUser(updatedUser)
+    }
   }
 
   return (
