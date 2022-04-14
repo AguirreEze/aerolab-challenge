@@ -22,7 +22,7 @@ export enum Order {
   HIGHESTPRICE = "Highest price",
 }
 
-export interface ListType {
+export interface StoreType {
   list: ProductType[]
   productsPerPage: number
   totalProducts: number
