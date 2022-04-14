@@ -1,27 +1,19 @@
 import { createContext } from "react"
-import { Order, ProductType } from "types"
+import { Order, StoreType } from "types"
 
 interface Icontext {
-  store: {
-    list: ProductType[]
-    productsPerPage: number
-    totalProducts: number
-  }
-  page: number
-  setPage: (user: number) => void
-  order: Order
-  setOrder: (user: Order) => void
+  store: StoreType
+  setStore: (store: StoreType) => void
 }
 
 export const initialStore = {
   list: [],
   productsPerPage: 0,
   totalProducts: 0,
+  page: 1,
+  order: Order.MOSTRECENT,
 }
 export const StoreContext = createContext<Icontext>({
   store: initialStore,
-  page: 0,
-  setPage: () => {},
-  order: Order.MOSTRECENT,
-  setOrder: () => {},
+  setStore: () => {},
 })

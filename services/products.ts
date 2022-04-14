@@ -3,7 +3,12 @@ import { Order, ProductType } from "types"
 const API_KEY = process.env.NEXT_PUBLIC_API_TOKEN
 const productsPerPage = 16
 
-export const getProducts = (page: number, order: Order) => {
+interface Iprops {
+  page: number
+  order: Order
+}
+
+export const getProducts = ({ page, order }: Iprops) => {
   const request = {
     method: "GET",
     headers: {
@@ -23,6 +28,8 @@ export const getProducts = (page: number, order: Order) => {
         list,
         productsPerPage,
         totalProducts: products.length,
+        page,
+        order,
       }
     })
 }

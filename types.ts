@@ -26,4 +26,6 @@ export interface StoreType {
   list: ProductType[]
   productsPerPage: number
   totalProducts: number
+  page: number
+  order: Order
 }

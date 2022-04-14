@@ -9,14 +9,11 @@ import { getProducts } from "services/products"
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [user, setUser] = useState<UserType | null>(null)
-
   const [store, setStore] = useState<StoreType>(initialStore)
-  const [page, setPage] = useState<number>(1)
-  const [order, setOrder] = useState<Order>(Order.MOSTRECENT)
 
   useEffect(() => {
-    getProducts(page, order).then(setStore)
-  }, [page, order])
+    getProducts({ page: store.page, order: store.order }).then(setStore)
+  }, [store.page, store.order])
 
   useEffect(() => {
     getUser().then(setUser)
@@ -24,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <StoreContext.Provider value={{ store, page, setPage, order, setOrder }}>
+      <StoreContext.Provider value={{ store, setStore }}>
         <Component {...pageProps} />
       </StoreContext.Provider>
     </UserContext.Provider>

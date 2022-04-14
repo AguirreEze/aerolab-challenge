@@ -1,16 +1,22 @@
-import { ChangeEvent } from "react"
+import { StoreContext } from "context/store"
+import { ChangeEvent, useContext } from "react"
 import { Order } from "types"
 import styles from "./styles.module.scss"
 
 interface Iprops {
-  setOrder: (state: Order) => void
   order: Order
   value: Order
 }
 
-export default function OrderButton({ setOrder, order, value }: Iprops) {
+export default function OrderButton({ order, value }: Iprops) {
+  const { store, setStore } = useContext(StoreContext)
+
   const onOrderValueChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setOrder(e.target.value as Order)
+    const updatedStore = {
+      ...store,
+      order: e.target.value as Order,
+    }
+    setStore(updatedStore)
   }
 
   return (

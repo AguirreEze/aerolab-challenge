@@ -9,38 +9,41 @@ interface Iprops {
 }
 
 export function StoreNav({ bottomNav }: Iprops) {
-  const { store, page, setPage, order, setOrder } = useContext(StoreContext)
+  const { store, setStore } = useContext(StoreContext)
+
+  const setPage = (updatedPage: number) => {
+    const updatedStore = {
+      ...store,
+      page: updatedPage,
+    }
+    setStore(updatedStore)
+  }
 
   return (
     <section className={bottomNav ? styles.bottom_nav : styles.nav}>
       <span className={styles.text_bold}>{`${
-        store ? store.productsPerPage * page : "0"
+        store ? store.productsPerPage * store.page : "0"
       } of ${store ? store.totalProducts : "0"} products`}</span>
       <form className={styles.buttoneer}>
         {!bottomNav && <span className={styles.text}>Sort by:</span>}
         {!bottomNav &&
           Object.values(Order).map((option) => (
-            <OrderButton
-              value={option}
-              order={order}
-              setOrder={setOrder}
-              key={option}
-            />
+            <OrderButton value={option} order={store.order} key={option} />
           ))}
-        {page !== 1 ? (
+        {store.page !== 1 ? (
           <button
             type="button"
             className={styles.button}
-            onClick={() => setPage(page - 1)}
+            onClick={() => setPage(store.page - 1)}
           >
             <span>{"<"}</span>
           </button>
         ) : null}
-        {store.totalProducts > store.productsPerPage * page ? (
+        {store.totalProducts > store.productsPerPage * store.page ? (
           <button
             type="button"
             className={styles.button}
-            onClick={() => setPage(page + 1)}
+            onClick={() => setPage(store.page + 1)}
           >
             <span>{">"}</span>
           </button>
