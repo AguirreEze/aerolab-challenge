@@ -29,3 +29,16 @@ export const addBalance = (value: 1000 | 5000 | 7500) => {
     request
   ).then((res) => res.json())
 }
+
+export const getHistory = () => {
+  const request = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+    },
+  }
+  return fetch(
+    "https://coding-challenge-api.aerolab.co/user/history",
+    request
+  ).then((res) => res.json())
+}
