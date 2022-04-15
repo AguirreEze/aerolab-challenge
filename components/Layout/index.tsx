@@ -6,6 +6,7 @@ import Coin from "public/icons/coin.svg"
 import BalanceOptions from "components/BalanceOptions"
 import { ReactChild, useContext, useState } from "react"
 import { UserContext } from "context/user"
+import Link from "next/link"
 
 interface Iprops {
   children: ReactChild
@@ -17,9 +18,18 @@ export default function Layout({ children }: Iprops) {
   return (
     <>
       <header className={styles.header}>
-        <Image src={Logo} alt={"Orange flyer"} />
+        <Link href={"/"}>
+          <a>
+            <Image src={Logo} alt={"Orange flyer"} />
+          </a>
+        </Link>
         {user ? (
-          <span className={styles.user_name}>{user.name}</span>
+          <>
+            <Link href={"/history"}>
+              <a className={styles.history}>History</a>
+            </Link>
+            <span className={styles.user_name}>{user.name}</span>
+          </>
         ) : (
           <span className={styles.user_name}>User</span>
         )}

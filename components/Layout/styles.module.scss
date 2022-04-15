@@ -7,13 +7,16 @@
 }
 
 .user_name {
-  margin-left: auto;
   font-family: SourceSansPro-Regular;
   font-size: 24px;
   color: #616161;
   letter-spacing: -0.15px;
   line-height: 48px;
   text-align: left;
+}
+.history {
+  @extend .user_name;
+  margin-left: auto;
 }
 .coin_container {
   display: flex;
