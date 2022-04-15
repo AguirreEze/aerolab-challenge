@@ -3,10 +3,10 @@ import { UserType } from "types"
 
 interface Icontext {
   user: UserType | null
-  setUser: (user: UserType) => void
+  refreshUser: () => void
 }
 
 export const UserContext = createContext<Icontext>({
   user: null,
-  setUser: () => {},
+  refreshUser: () => {},
 })

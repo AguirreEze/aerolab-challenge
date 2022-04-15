@@ -9,11 +9,14 @@ interface Iprops {
 
 export default function UserProvider({ children }: Iprops) {
   const [user, setUser] = useState<UserType | null>(null)
-  useEffect(() => {
+  const refreshUser = () => {
     getUser().then(setUser)
+  }
+  useEffect(() => {
+    refreshUser()
   }, [])
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, refreshUser }}>
       {children}
     </UserContext.Provider>
   )
