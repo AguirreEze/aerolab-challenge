@@ -17,7 +17,6 @@ export default function BalanceOptions({ show, setShow }: Iprops) {
   const handleClick = (value: 1000 | 5000 | 7500) => {
     setDisabled(true)
     addBalance(value).then((res) => {
-      console.log(res)
       refreshUser()
       setDisabled(false)
       setShow(false)
