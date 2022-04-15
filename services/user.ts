@@ -11,3 +11,21 @@ export const getUser = () => {
     (res) => res.json()
   )
 }
+
+export const addBalance = (value: 1000 | 5000 | 7500) => {
+  const body = {
+    amount: value,
+  }
+  const request = {
+    method: "POST",
+    body: JSON.stringify(body),
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${API_KEY}`,
+    },
+  }
+  return fetch(
+    "https://coding-challenge-api.aerolab.co/user/points",
+    request
+  ).then((res) => res.json())
+}
