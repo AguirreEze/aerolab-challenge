@@ -6,11 +6,13 @@ import styles from "./styles.module.scss"
 import Logo from "public/aerolab-logo.svg"
 import Coin from "public/icons/coin.svg"
 import Store from "components/Store"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { UserContext } from "context/user"
+import BalanceOptions from "components/BalanceOptions"
 
 const Home: NextPage = () => {
   const { user } = useContext(UserContext)
+  const [showBalanceOptions, setShowBalanceOptions] = useState<boolean>(false)
 
   return (
     <div className={styles.container}>
@@ -27,7 +29,10 @@ const Home: NextPage = () => {
           ) : (
             <span className={styles.user_name}>User</span>
           )}
-          <div className={styles.coin_container}>
+          <div
+            className={styles.coin_container}
+            onClick={() => setShowBalanceOptions(!showBalanceOptions)}
+          >
             {user ? (
               <span className={styles.coin_counter}>{user.points}</span>
             ) : (
@@ -35,6 +40,10 @@ const Home: NextPage = () => {
             )}
             <Image src={Coin} alt={"Gold Coin"} />
           </div>
+          <BalanceOptions
+            show={showBalanceOptions}
+            setShow={setShowBalanceOptions}
+          />
         </div>
         <Image
           src={"/header-x1.png"}
