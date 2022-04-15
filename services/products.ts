@@ -33,3 +33,20 @@ export const getProducts = ({ page, order }: Iprops) => {
       }
     })
 }
+
+export const redeemProduct = (id: string) => {
+  const body = {
+    productId: id,
+  }
+  const request = {
+    method: "POST",
+    body: JSON.stringify(body),
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${API_KEY}`,
+    },
+  }
+  return fetch("https://coding-challenge-api.aerolab.co/redeem", request).then(
+    (res) => res.json()
+  )
+}

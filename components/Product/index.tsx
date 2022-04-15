@@ -7,13 +7,14 @@ import { UserContext } from "context/user"
 import BlueBag from "public/icons/buy-blue.svg"
 import WhiteBag from "public/icons/buy-white.svg"
 import MissingCoins from "components/MissingCoins"
+import { redeemProduct } from "services/products"
 
 interface Iprops {
   data: ProductType
 }
 
 export default function Product({ data }: Iprops) {
-  const { user, setUser } = useContext(UserContext)
+  const { user, refreshUser } = useContext(UserContext)
   const [canBuy, setCanBuy] = useState<boolean>(false)
 
   useEffect(() => {
@@ -25,11 +26,7 @@ export default function Product({ data }: Iprops) {
       window.confirm(`Want to buy ${data.name}, for ${data.cost} ?`) &&
       user
     ) {
-      const updatedUser = {
-        ...user,
-        points: user?.points - data.cost,
-      }
-      setUser(updatedUser)
+      redeemProduct(data._id).then(() => refreshUser())
     }
   }
 
