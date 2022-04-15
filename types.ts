@@ -29,3 +29,8 @@ export interface StoreType {
   page: number
   order: Order
 }
+
+export interface HistoryItemType extends ProductType {
+  createDate: string
+  productId: string
+}
