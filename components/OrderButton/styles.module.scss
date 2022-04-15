@@ -42,3 +42,9 @@
 .input:checked ~ .label {
   color: #fff;
 }
+
+@media (max-width: 820px) {
+  .container {
+    width: 100%;
+  }
+}

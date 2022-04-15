@@ -24,12 +24,14 @@ export function StoreNav({ bottomNav }: Iprops) {
       <span className={styles.text_bold}>{`${
         store ? store.productsPerPage * store.page : "0"
       } of ${store ? store.totalProducts : "0"} products`}</span>
-      <form className={styles.buttoneer}>
+      <div className={styles.order}>
         {!bottomNav && <span className={styles.text}>Sort by:</span>}
         {!bottomNav &&
           Object.values(Order).map((option) => (
             <OrderButton value={option} order={store.order} key={option} />
           ))}
+      </div>
+      <div className={styles.page}>
         {store.page !== 1 ? (
           <button
             type="button"
@@ -48,7 +50,7 @@ export function StoreNav({ bottomNav }: Iprops) {
             <span>{">"}</span>
           </button>
         ) : null}
-      </form>
+      </div>
     </section>
   )
 }

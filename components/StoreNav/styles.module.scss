@@ -4,8 +4,10 @@
   gap: 24px;
   border-bottom: 1px solid #d9d9d9;
   padding: 24px 0;
+  width: 100%;
 }
 .text_bold {
+  display: block;
   font-family: SourceSansPro-Regular;
   font-size: 24px;
   color: #616161;
@@ -23,11 +25,6 @@
   line-height: 48px;
   text-align: left;
 }
-.buttoneer {
-  display: flex;
-  gap: 24px;
-  flex: 1;
-}
 
 .button {
   border: 1px solid #d9d9d9;
@@ -43,5 +40,41 @@
   margin-bottom: 74px;
   .text_bold {
     border-right: none;
+  }
+}
+.order {
+  display: flex;
+  gap: 24px;
+}
+.page {
+  margin-left: auto;
+}
+
+@media (max-width: 1180px) {
+  .nav {
+    display: grid;
+    grid-template-areas: "text page" "order order";
+  }
+  .text_bold {
+    grid-area: text;
+    place-self: start;
+  }
+  .order {
+    grid-area: order;
+    place-self: start;
+  }
+  .page {
+    grid-area: page;
+  }
+}
+
+@media (max-width: 820px) {
+  .order {
+    flex-direction: column;
+    place-self: center;
+    width: 75%;
+  }
+  .text {
+    text-align: center;
   }
 }
