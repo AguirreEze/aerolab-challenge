@@ -26,6 +26,7 @@ const Home: NextPage = () => {
           alt={"Blue headphones on a light blue background"}
           layout={"responsive"}
         />
+        <span className={styles.section_name}>Electronics</span>
       </section>
       <main className={styles.background}>
         <StoreNav bottomNav={false} />
