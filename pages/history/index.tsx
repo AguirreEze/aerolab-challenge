@@ -18,7 +18,7 @@ const History: NextPage = () => {
       <h1 className={styles.title}>{`Purchace history of ${user?.name}`}</h1>
       <ul className={styles.list}>
         {history.map((elem) => (
-          <article key={elem.createDate} className={styles.container}>
+          <li key={elem.createDate} className={styles.container}>
             <div className={styles.image_container}>
               <Image
                 src={elem.img.hdUrl}
@@ -27,11 +27,11 @@ const History: NextPage = () => {
                 alt={elem.name}
               />
             </div>
-            <h2>{elem.name}</h2>
-            <span>{`Date: ${elem.createDate}`}</span>
-            <span>{`Category: ${elem.category}`}</span>
-            <span>{`Price: ${elem.cost}`}</span>
-          </article>
+            <h2 className={styles.text_bold}>{elem.name}</h2>
+            <span className={styles.text}>{`Date: ${elem.createDate}`}</span>
+            <span className={styles.text}>{`Category: ${elem.category}`}</span>
+            <span className={styles.text}>{`Price: ${elem.cost}`}</span>
+          </li>
         ))}
       </ul>
     </main>
